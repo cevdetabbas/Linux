@@ -1,0 +1,51 @@
+yum groupinstall "Development Tools" -y 
+yum groupinstall “VMware platform specific packages” -y
+rpm -qa | grep kernel-headers 
+yum install kernel-headers -y 
+yum install kernel-devel -y
+yum install wget -y
+firewall-cmd --permanent --zone=public --add-port=443/tcp
+firewall-cmd --permanent --zone=public --add-port=902/tcp
+firewall-cmd --permanent --zone=public --add-port=903/tcp
+firewall-cmd --permanent --zone=public --add-port=2888/tcp
+firewall-cmd --reload
+firewall-cmd --list-all
+yum install xorg-x11-server-Xvfb.x86_64 -y
+echo HandleLidSwitch=ignore >> /etc/systemd/logind.conf
+systemctl restart systemd-logind.service
+yum install bash-completion bash-completion-extras -y
+yum install -y ntfs-3g
+yum install vim -y
+yum install -y xterm
+systemctl start vncserver-x11-serviced
+systemctl enable vncserver-x11-serviced
+systemctl start vncserver-virtuald
+systemctl enable vncserver-virtuald
+sudo yum localinstall --nogpgcheck https://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm
+sudo yum localinstall --nogpgcheck https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-7.noarch.rpm
+sudo yum localinstall --nogpgcheck http://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-7-11.noarch.rpm
+sudo yum localinstall --nogpgcheck  http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+ sudo yum localinstall --nogpgcheck http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+sudo rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
+sudo rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-3.el7.elrepo.noarch.rpm
+sudo yum localinstall --nogpgcheck http://repo.webtatic.com/yum/el7/webtatic-release.rpm
+
+
+
+
+
+
+KALIDEKI SANAL MAKINA DALGASI
+apt-get clean && apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y
+apt-get install -y linux-headers-$(uname -r)
+
+
+
+
+#MULTIMEDIA
+yum -y install http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
+yum -y install http://linuxdownload.adobe.com/linux/x86_64/adobe-release-x86_64-1.0-1.noarch.rpm
+yum install flash-plugin -y
+yum install icedtea-web-y
+yum install vlc smplayer ffmpeg HandBrake-{gui,cli} -y
+yum install libdvdcss gstreamer{,1}-plugins-ugly gstreamer-plugins-bad-nonfree -y gstreamer1-plugins-bad-freeworld -y
