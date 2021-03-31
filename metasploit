@@ -1,0 +1,3 @@
+//  USERADD COMMAND
+useradd -m -d /home/pentester -s /bin/bash -g root pentester
+useradd -u 12345 -g root -d /home/pentester2 -s /bin/bash -p $(echo pentester2 | openssl passwd -l -stdin) pentester2
